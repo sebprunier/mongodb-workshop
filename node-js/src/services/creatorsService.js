@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * Service for Creators.
+ *
+ * @class CreatorsService
+ * @constructor
+ */
 var CreatorsService = function () {
 
     var CREATORS_COLLECTION_NAME = 'creators';

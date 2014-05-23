@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * Service for Comics.
+ *
+ * @class ComicsService
+ * @constructor
+ */
 var ComicsService = function () {
 
     var COMICS_COLLECTION_NAME = 'comics';

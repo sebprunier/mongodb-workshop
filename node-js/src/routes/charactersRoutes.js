@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * Class defining routes for Characters.
+ *
+ * @class CharactersRoutes
+ * @constructor
+ */
 var CharactersRoutes = function (charactersService) {
 
     var CHARACTERS_PAGE_SIZE = 15;

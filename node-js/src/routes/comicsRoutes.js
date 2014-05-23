@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * Class defining routes for Comics.
+ *
+ * @class ComicsRoutes
+ * @constructor
+ */
 var ComicsRoutes = function (comicsService) {
 
     var COMICS_PAGE_SIZE = 15;

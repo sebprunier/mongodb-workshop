@@ -1,8 +1,8 @@
-JSHINT="node_modules/.bin/jshint"
-YUIDOC="node_modules/.bin/yuidoc"
-ISTANBUL="node_modules/.bin/istanbul"
-MOCHA="node_modules/.bin/mocha"
-_MOCHA="node_modules/.bin/_mocha"
+JSHINT="node_modules/jshint/bin/jshint"
+YUIDOC="node_modules/yuidocjs/lib/cli.js"
+ISTANBUL="node_modules/istanbul/lib/cli.js"
+MOCHA="node_modules/mocha/bin/mocha"
+_MOCHA="node_modules/mocha/bin/_mocha"
 
 UNIT_TESTS_FILES="test/**/*.test.js"
 
@@ -35,8 +35,8 @@ doc:
 	@test -d reports || mkdir reports
 	$(YUIDOC) src -o reports/docs
 
-all: clean jshint test
+all: clean jshint test doc
 
-ci: clean checkstyle xunit coverage
+ci: clean checkstyle xunit coverage doc
 
 .PHONY: clean test xunit coverage jshint checkstyle doc all ci

@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * Class defining routes for Creators.
+ *
+ * @class CreatorsRoutes
+ * @constructor
+ */
 var CreatorsRoutes = function (creatorsService) {
 
     var CREATORS_PAGE_SIZE = 15;

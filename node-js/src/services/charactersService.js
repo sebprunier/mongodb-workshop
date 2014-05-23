@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * Service for Characters.
+ *
+ * @class CharactersService
+ * @constructor
+ */
 var CharactersService = function () {
 
     var CHARACTERS_COLLECTION_NAME = 'characters';
@@ -15,6 +21,12 @@ var CharactersService = function () {
         };
     };
 
+    /**
+     * Find a random Character.
+     *
+     * @method findOneRandomly
+     * @param {Function} callback A callback function applied on the returned Character
+     */
     var _findOneRandomly = function (callback) {
         mongoDbConnection(function (connection) {
             var collection = connection.collection(CHARACTERS_COLLECTION_NAME);
@@ -32,6 +44,13 @@ var CharactersService = function () {
         });
     };
 
+    /**
+     * Find a Character by id.
+     *
+     * @method findById
+     * @param {Number} id the Character's identifier
+     * @param {Function} callback A callback function applied on the returned Character
+     */
     var _findById = function (id, callback) {
         mongoDbConnection(function (connection) {
             connection.collection(CHARACTERS_COLLECTION_NAME).findOne({'_id': id}, function (err, item) {
@@ -41,6 +60,15 @@ var CharactersService = function () {
         });
     };
 
+    /**
+     * Find Characters by name.
+     *
+     * @method findByName
+     * @param {String} name the Character's name
+     * @param {Number} limit the max number of Characters to return
+     * @param {Number} skip the number of Characters to skip
+     * @param {Function} callback A callback function applied on the returned Characters
+     */
     var _findByName = function (name, limit, skip, callback) {
         mongoDbConnection(function (connection) {
             var collection = connection.collection(CHARACTERS_COLLECTION_NAME);
@@ -57,6 +85,14 @@ var CharactersService = function () {
         });
     };
 
+    /**
+     * Find all Characters.
+     *
+     * @method findAll
+     * @param {Number} limit the max number of Characters to return
+     * @param {Number} skip the number of Characters to skip
+     * @param {Function} callback A callback function applied on the returned Characters
+     */
     var _findAll = function (limit, skip, callback) {
         mongoDbConnection(function (connection) {
             var collection = connection.collection(CHARACTERS_COLLECTION_NAME);
@@ -72,6 +108,14 @@ var CharactersService = function () {
         });
     };
 
+    /**
+     * Add a Story for a Character.
+     *
+     * @method putStory
+     * @param {Number} id the Character's identifier
+     * @param {Object} story the story to add
+     * @param {Function} callback A callback function applied on the creation result
+     */
     var _putStory = function (id, story, callback) {
         mongoDbConnection(function (connection) {
             var collection = connection.collection(CHARACTERS_COLLECTION_NAME);
@@ -82,6 +126,13 @@ var CharactersService = function () {
         });
     };
 
+    /**
+     * Create a Character.
+     *
+     * @method create
+     * @param {Object} character the character to create
+     * @param {Function} callback A callback function applied on the creation result
+     */
     var _create = function (character, callback) {
         mongoDbConnection(function (connection) {
             var collection = connection.collection(CHARACTERS_COLLECTION_NAME);
@@ -93,6 +144,13 @@ var CharactersService = function () {
         });
     }
 
+    /**
+     * Remove a Character.
+     *
+     * @method delete
+     * @param {Number} id of the Characterto remove
+     * @param {Function} callback A callback function applied on the deletion result
+     */
     var _delete = function (id, callback) {
         mongoDbConnection(function (connection) {
             var collection = connection.collection(CHARACTERS_COLLECTION_NAME);
