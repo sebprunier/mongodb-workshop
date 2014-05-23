@@ -14,8 +14,11 @@
         "mongodb": "1.4.2"
     },
     "devDependencies": {
+        "lodash": "2.4.1",
         "mocha": "1.19.0",
         "assert": "1.1.1",
-        "lodash": "2.4.1"
+        "istanbul": "0.2.10",
+        "jshint": "2.5.1",
+        "yuidocjs": "0.3.50"
     }
 }
