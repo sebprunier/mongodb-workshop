@@ -28,15 +28,19 @@ xunit:
 coverage:
 	@# check if reports folder exists, if not create it
 	@test -d reports || mkdir reports
-	$(ISTANBUL) cover --report cobertura --dir ./reports $(_MOCHA) -- $(UNIT_TESTS_FILES)
+	$(ISTANBUL) cover --report cobertura --report lcov --dir ./reports $(_MOCHA) -- $(UNIT_TESTS_FILES)
 
 doc:
 	@# check if reports folder exists, if not create it
 	@test -d reports || mkdir reports
 	$(YUIDOC) src -o reports/docs
 
+sonar:
+	@# add the sonar sonar-runner executable to the PATH and run it
+	./tools/sonar-runner-2.4/bin/sonar-runner
+
 all: clean jshint test doc
 
-ci: clean checkstyle xunit coverage doc
+ci: clean checkstyle xunit coverage doc sonar
 
-.PHONY: clean test xunit coverage jshint checkstyle doc all ci
+.PHONY: clean test xunit coverage jshint checkstyle doc all ci sonar
